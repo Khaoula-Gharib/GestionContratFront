@@ -10,7 +10,6 @@ import {Produit} from "../classe/produit";
 export class ProduitComponent implements OnInit {
  //@ts-ignore
   produits:Produit[]
-  @ViewChild('closeModal') closeModal: ElementRef | undefined
 
   //@ts-ignore
   produit:Produit={
