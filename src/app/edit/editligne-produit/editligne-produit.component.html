@@ -1,0 +1,12 @@
+<div class="global" *ngIf="ligneProduit">
+  <form (ngSubmit)="onEditLigneProduit(ligneProduit)" style="font-size:16px;">
+    <input type="hidden" class="form-control" placeholder="id">
+    <div class="form-group">
+      <label for="qte">Quantité</label>
+      <input [(ngModel)]="ligneProduit.quantite" #ligneproduitQte="ngModel" required type="text" class="form-control" id="qte" placeholder="Entrez la désignation du produit" name="qte">
+    </div>
+
+    <button style="font-size: 16px;" type="submit" class="btn btn-block btn-dark" ><strong>Modifier</strong></button>
+    <button style="font-size: 16px;" type="reset" class="btn btn-block btn-dark"><strong>Réinitialiser</strong></button>
+  </form>
+</div>

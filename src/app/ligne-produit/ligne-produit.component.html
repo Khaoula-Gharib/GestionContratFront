@@ -1,0 +1,29 @@
+<form #form (ngSubmit)="onAddLigneProduit()">
+  <label for="qte">Quantité</label>
+  <input  [(ngModel)]="ligneProduit.quantite" #ligneProduitQuantite="ngModel" required class="form-control" type="text" id="qte" name="qte">
+  <br>
+  <input type="submit" class="btn form-control btn-block btn-success" value="Ajouter">
+</form>
+
+
+<table class="table">
+  <thead>
+  <tr>
+    <th class="text-center" scope="col">#</th>
+    <th class="text-center" scope="col">Quantité</th>
+    <th class="text-center" scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let f of ligneProduits">
+    <th class="text-center" scope="row">{{ f.id}}</th>
+    <td class="text-center">{{ f.quantite }}</td>
+    <td class="text-center">
+      <button class="btn btn-warning" style="color: black;" [title]="f.id + ' edit'" [routerLink]="['/ligneproduit', f.id]"><strong>Modifier</strong></button>
+      <button style="margin-left: 20px; color: black;" class="btn btn-danger" (click)="onDelete(f.id)"><strong>Supprimer</strong></button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+

@@ -1,0 +1,41 @@
+<form #form (ngSubmit)="onAddFournisseur()">
+  <label for="nom">Nom</label>
+  <input  [(ngModel)]="fournisseur.nom" #fournisseurNom="ngModel" required class="form-control" type="text" id="nom" name="nom">
+  <label for="adresse">Adresse</label>
+  <input  [(ngModel)]="fournisseur.adresse" #fournisseurAdresse="ngModel" required class="form-control" type="text" id="adresse" name="adresse">
+  <label for="tel">Numéro Téléphone</label>
+  <input   [(ngModel)]="fournisseur.numTel" #fournisseurNumTel="ngModel" required class="form-control" type="text" id="tel" name="tel">
+  <label for="cmp">Numéro de Compte</label>
+  <input   [(ngModel)]="fournisseur.numCompte" #fournisseurNumCompte="ngModel" required class="form-control" type="text" id="cmp" name="cmp">
+  <br>
+  <input type="submit" class="btn form-control btn-block btn-success" value="Ajouter">
+</form>
+
+
+<table class="table">
+  <thead>
+  <tr>
+    <th class="text-center" scope="col">#</th>
+    <th class="text-center" scope="col">Nom</th>
+    <th class="text-center" scope="col">Adresse</th>
+    <th class="text-center" scope="col">Numéro téléphone</th>
+    <th class="text-center" scope="col">Numéro Compte</th>
+    <th class="text-center" scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let f of fournisseurs">
+    <th class="text-center" scope="row">{{ f.id}}</th>
+    <td class="text-center">{{ f.nom }}</td>
+    <td class="text-center">{{ f.adresse }}</td>
+    <td class="text-center">{{ f.numTel }}</td>
+    <td class="text-center">{{ f.numCompte }}</td>
+    <td class="text-center">
+      <button class="btn btn-warning" style="color: black;" [title]="f.nom + ' edit'" [routerLink]="['/fournisseur', f.id]"><strong>Modifier</strong></button>
+      <button style="margin-left: 20px; color: black;" class="btn btn-danger" (click)="onDelete(f.id)"><strong>Supprimer</strong></button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+

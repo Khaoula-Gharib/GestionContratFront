@@ -1,0 +1,37 @@
+<h1  class="text-center">Formulaire Produit</h1>
+<form #form (ngSubmit)="onAddProduit()">
+  <label for="nom">Nom</label>
+  <input  [(ngModel)]="produit.nom" #produitNom="ngModel" required class="form-control" type="text" id="nom" name="nom">
+  <label for="desc">Description</label>
+  <input  [(ngModel)]="produit.description" #produitDescription="ngModel" required class="form-control" type="text" id="desc" name="desc">
+  <label for="prix">Prix</label>
+  <input   [(ngModel)]="produit.prix" #produitPrix="ngModel" required class="form-control" type="text" id="prix" name="prix">
+  <input type="submit" class="btn form-control btn-block btn-success" value="Ajouter">
+</form>
+<br/>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th class="text-center" scope="col">#</th>
+    <th class="text-center" scope="col">Nom</th>
+    <th class="text-center" scope="col">Description</th>
+    <th class="text-center" scope="col">Prix</th>
+    <th class="text-center" scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let f of produits">
+    <th class="text-center" scope="row">{{ f.id}}</th>
+    <td class="text-center">{{ f.nom }}</td>
+    <td class="text-center">{{ f.description }}</td>
+    <td class="text-center">{{ f.prix }}</td>
+    <td class="text-center">
+      <button class="btn btn-warning" style="color: black;" [title]="f.nom + ' edit'" [routerLink]="['/produit', f.id]"><strong>Modifier</strong></button>
+      <button style="margin-left: 20px; color: black;" class="btn btn-danger" (click)="onDelete(f.id)"><strong>Supprimer</strong></button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+

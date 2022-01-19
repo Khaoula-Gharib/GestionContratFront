@@ -1,0 +1,26 @@
+<div class="global" *ngIf="produit">
+  <form (ngSubmit)="onEditProduit(produit)" style="font-size:16px;">
+    <input type="hidden" class="form-control" placeholder="id">
+    <div class="form-group">
+      <label for="designation">Nom</label>
+      <input [(ngModel)]="produit.nom" #produitNom="ngModel" required type="text" class="form-control" id="designation" placeholder="Entrez la désignation du produit" name="designation">
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="prixunitaire">Description</label>
+          <input [(ngModel)]="produit.description" #produitDescription="ngModel" required type="text" class="form-control" id="prixunitaire" placeholder="0.0" name="prixunitaire">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="tel">Prix</label>
+          <input [(ngModel)]="produit.prix" #produitPrix type="text" class="form-control" id="tel" placeholder="0" name="tel">
+        </div>
+      </div>
+
+    </div>
+    <button style="font-size: 16px;" type="submit" class="btn btn-block btn-dark" ><strong>Modifier</strong></button>
+    <button style="font-size: 16px;" type="reset" class="btn btn-block btn-dark"><strong>Réinitialiser</strong></button>
+  </form>
+</div>
